@@ -56,12 +56,14 @@
 @synthesize reverseAuthBtn = _reverseAuthBtn;
 @synthesize accountStore = _accountStore;
 
+#if !__has_feature(objc_arc)
 - (void)dealloc
 {
     SAFE_ARC_RELEASE(_reverseAuthBtn);
     SAFE_ARC_RELEASE(_accountStore);
     SAFE_ARC_SUPER_DEALLOC();
 }
+#endif
 
 - (void)showAlert:(NSString *)alert title:(NSString *)title
 {

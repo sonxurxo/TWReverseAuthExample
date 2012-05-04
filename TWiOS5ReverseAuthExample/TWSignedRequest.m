@@ -64,6 +64,15 @@
     return self;
 }
 
+#if !__has_feature(objc_arc)
+- (void)dealloc
+{
+    SAFE_ARC_RELEASE(_url);
+    SAFE_ARC_RELEASE(_parameters);
+    SAFE_ARC_SUPER_DEALLOC();
+}
+#endif
+
 - (NSURLRequest *)_buildRequest
 {
     NSAssert(_url, @"You can't build a request without an URL");
