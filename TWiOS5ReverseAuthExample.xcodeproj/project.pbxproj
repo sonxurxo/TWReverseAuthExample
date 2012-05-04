@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0978CA15545A8B00DFD520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF3796C142291940071ABF7 /* main.m */; };
+		CD0978CB15545A8B00DFD520 /* TWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF37970142291940071ABF7 /* TWAppDelegate.m */; };
+		CD0978CC15545A8B00DFD520 /* TWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF37973142291940071ABF7 /* TWViewController.m */; };
+		CD0978CD15545A8B00DFD520 /* TWSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF379A414229C820071ABF7 /* TWSignedRequest.m */; };
+		CD0978CE15545A8B00DFD520 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318511422D05400740211 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD0978CF15545A8B00DFD520 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318531422D05400740211 /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD0978D015545A8B00DFD520 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318551422D05400740211 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD0978D215545A8B00DFD520 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37997142293220071ABF7 /* Accounts.framework */; };
+		CD0978D315545A8B00DFD520 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF379951422931E0071ABF7 /* Twitter.framework */; };
+		CD0978D415545A8B00DFD520 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37960142291940071ABF7 /* UIKit.framework */; };
+		CD0978D515545A8B00DFD520 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37962142291940071ABF7 /* Foundation.framework */; };
+		CD0978D615545A8B00DFD520 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37964142291940071ABF7 /* CoreGraphics.framework */; };
+		CD0978D815545A8B00DFD520 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF37969142291940071ABF7 /* InfoPlist.strings */; };
+		CD0978D915545A8B00DFD520 /* TWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF37975142291940071ABF7 /* TWViewController.xib */; };
+		CD0978DA15545A8B00DFD520 /* ic_twitterapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */; };
+		CD0978DB15545A8B00DFD520 /* ic_twitterapi.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE741459D66200978544 /* ic_twitterapi.png */; };
+		CD0978DC15545A8B00DFD520 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE781459D83D00978544 /* twitter.png */; };
+		CD0978DD15545A8B00DFD520 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CD14C12214B3A92B00B8A188 /* README.md */; };
 		CD14C12314B3A92B00B8A188 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CD14C12214B3A92B00B8A188 /* README.md */; };
 		CD2CBE751459D66200978544 /* ic_twitterapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */; };
 		CD2CBE761459D66200978544 /* ic_twitterapi.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2CBE741459D66200978544 /* ic_twitterapi.png */; };
@@ -14,6 +32,7 @@
 		CD6318571422D05400740211 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318511422D05400740211 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD6318581422D05400740211 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318531422D05400740211 /* OAuth+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD6318591422D05400740211 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6318551422D05400740211 /* OAuthCore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD95A75215545BF900D4644F /* ReverseAuth-ManualMem.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD95A75115545BF900D4644F /* ReverseAuth-ManualMem.plist */; };
 		CDF37961142291940071ABF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37960142291940071ABF7 /* UIKit.framework */; };
 		CDF37963142291940071ABF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37962142291940071ABF7 /* Foundation.framework */; };
 		CDF37965142291940071ABF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF37964142291940071ABF7 /* CoreGraphics.framework */; };
@@ -42,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		CD0978C71554562900DFD520 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		CD0978E115545A8B00DFD520 /* ReverseAuth-Manual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReverseAuth-Manual.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD14C12214B3A92B00B8A188 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_twitterapi@2x.png"; sourceTree = "<group>"; };
 		CD2CBE741459D66200978544 /* ic_twitterapi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_twitterapi.png; sourceTree = "<group>"; };
@@ -52,11 +72,12 @@
 		CD6318531422D05400740211 /* OAuth+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAuth+Additions.m"; sourceTree = "<group>"; };
 		CD6318541422D05400740211 /* OAuthCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthCore.h; sourceTree = "<group>"; };
 		CD6318551422D05400740211 /* OAuthCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthCore.m; sourceTree = "<group>"; };
-		CDF3795C142291940071ABF7 /* ReverseAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReverseAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD95A75115545BF900D4644F /* ReverseAuth-ManualMem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ReverseAuth-ManualMem.plist"; sourceTree = "<group>"; };
+		CDF3795C142291940071ABF7 /* ReverseAuth-ARC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReverseAuth-ARC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF37960142291940071ABF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CDF37962142291940071ABF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CDF37964142291940071ABF7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CDF37968142291940071ABF7 /* TWiOS5ReverseAuthExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TWiOS5ReverseAuthExample-Info.plist"; sourceTree = "<group>"; };
+		CDF37968142291940071ABF7 /* ReverseAuth-ARC.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReverseAuth-ARC.plist"; sourceTree = "<group>"; };
 		CDF3796A142291940071ABF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CDF3796C142291940071ABF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDF3796E142291940071ABF7 /* TWiOS5ReverseAuthExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWiOS5ReverseAuthExample-Prefix.pch"; sourceTree = "<group>"; };
@@ -74,6 +95,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CD0978D115545A8B00DFD520 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0978D215545A8B00DFD520 /* Accounts.framework in Frameworks */,
+				CD0978D315545A8B00DFD520 /* Twitter.framework in Frameworks */,
+				CD0978D415545A8B00DFD520 /* UIKit.framework in Frameworks */,
+				CD0978D515545A8B00DFD520 /* Foundation.framework in Frameworks */,
+				CD0978D615545A8B00DFD520 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDF37959142291940071ABF7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,21 +148,22 @@
 		CDF37951142291940071ABF7 = {
 			isa = PBXGroup;
 			children = (
-				CD14C12214B3A92B00B8A188 /* README.md */,
-				CD2CBE781459D83D00978544 /* twitter.png */,
-				CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */,
-				CD2CBE741459D66200978544 /* ic_twitterapi.png */,
-				CDF37966142291940071ABF7 /* TWiOS5ReverseAuthExample */,
 				CDF3795F142291940071ABF7 /* Frameworks */,
+				CD2CBE741459D66200978544 /* ic_twitterapi.png */,
+				CD2CBE731459D66200978544 /* ic_twitterapi@2x.png */,
 				CDF3795D142291940071ABF7 /* Products */,
+				CD14C12214B3A92B00B8A188 /* README.md */,
+				CDF37966142291940071ABF7 /* TWiOS5ReverseAuthExample */,
+				CD2CBE781459D83D00978544 /* twitter.png */,
 			);
 			sourceTree = "<group>";
 		};
 		CDF3795D142291940071ABF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CDF3795C142291940071ABF7 /* ReverseAuth.app */,
+				CDF3795C142291940071ABF7 /* ReverseAuth-ARC.app */,
 				CDF3797D142291940071ABF7 /* TWiOS5ReverseAuthExampleTests.octest */,
+				CD0978E115545A8B00DFD520 /* ReverseAuth-Manual.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,7 +184,6 @@
 		CDF37966142291940071ABF7 /* TWiOS5ReverseAuthExample */ = {
 			isa = PBXGroup;
 			children = (
-				CD0978C71554562900DFD520 /* ARCMacros.h */,
 				CD63184E1422D05400740211 /* ABOAuthCore */,
 				CDF37967142291940071ABF7 /* Supporting Files */,
 				CDF3796F142291940071ABF7 /* TWAppDelegate.h */,
@@ -167,7 +200,9 @@
 		CDF37967142291940071ABF7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CDF37968142291940071ABF7 /* TWiOS5ReverseAuthExample-Info.plist */,
+				CD0978C71554562900DFD520 /* ARCMacros.h */,
+				CD95A75115545BF900D4644F /* ReverseAuth-ManualMem.plist */,
+				CDF37968142291940071ABF7 /* ReverseAuth-ARC.plist */,
 				CDF37969142291940071ABF7 /* InfoPlist.strings */,
 				CDF3796C142291940071ABF7 /* main.m */,
 				CDF3796E142291940071ABF7 /* TWiOS5ReverseAuthExample-Prefix.pch */,
@@ -178,9 +213,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CDF3795B142291940071ABF7 /* ReverseAuth */ = {
+		CD0978C815545A8B00DFD520 /* ReverseAuth-ManualMem */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDF3798F142291940071ABF7 /* Build configuration list for PBXNativeTarget "ReverseAuth" */;
+			buildConfigurationList = CD0978DE15545A8B00DFD520 /* Build configuration list for PBXNativeTarget "ReverseAuth-ManualMem" */;
+			buildPhases = (
+				CD0978C915545A8B00DFD520 /* Sources */,
+				CD0978D115545A8B00DFD520 /* Frameworks */,
+				CD0978D715545A8B00DFD520 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ReverseAuth-ManualMem";
+			productName = TWiOS5ReverseAuthExample;
+			productReference = CD0978E115545A8B00DFD520 /* ReverseAuth-Manual.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CDF3795B142291940071ABF7 /* ReverseAuth-ARC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF3798F142291940071ABF7 /* Build configuration list for PBXNativeTarget "ReverseAuth-ARC" */;
 			buildPhases = (
 				CDF37958142291940071ABF7 /* Sources */,
 				CDF37959142291940071ABF7 /* Frameworks */,
@@ -190,9 +242,9 @@
 			);
 			dependencies = (
 			);
-			name = ReverseAuth;
+			name = "ReverseAuth-ARC";
 			productName = TWiOS5ReverseAuthExample;
-			productReference = CDF3795C142291940071ABF7 /* ReverseAuth.app */;
+			productReference = CDF3795C142291940071ABF7 /* ReverseAuth-ARC.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CDF3797C142291940071ABF7 /* TWiOS5ReverseAuthExampleTests */ = {
@@ -235,13 +287,27 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CDF3795B142291940071ABF7 /* ReverseAuth */,
+				CDF3795B142291940071ABF7 /* ReverseAuth-ARC */,
+				CD0978C815545A8B00DFD520 /* ReverseAuth-ManualMem */,
 				CDF3797C142291940071ABF7 /* TWiOS5ReverseAuthExampleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CD0978D715545A8B00DFD520 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0978D815545A8B00DFD520 /* InfoPlist.strings in Resources */,
+				CD0978D915545A8B00DFD520 /* TWViewController.xib in Resources */,
+				CD0978DA15545A8B00DFD520 /* ic_twitterapi@2x.png in Resources */,
+				CD0978DB15545A8B00DFD520 /* ic_twitterapi.png in Resources */,
+				CD0978DC15545A8B00DFD520 /* twitter.png in Resources */,
+				CD0978DD15545A8B00DFD520 /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDF3795A142291940071ABF7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +318,7 @@
 				CD2CBE761459D66200978544 /* ic_twitterapi.png in Resources */,
 				CD2CBE791459D83D00978544 /* twitter.png in Resources */,
 				CD14C12314B3A92B00B8A188 /* README.md in Resources */,
+				CD95A75215545BF900D4644F /* ReverseAuth-ManualMem.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +348,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CD0978C915545A8B00DFD520 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0978CA15545A8B00DFD520 /* main.m in Sources */,
+				CD0978CB15545A8B00DFD520 /* TWAppDelegate.m in Sources */,
+				CD0978CC15545A8B00DFD520 /* TWViewController.m in Sources */,
+				CD0978CD15545A8B00DFD520 /* TWSignedRequest.m in Sources */,
+				CD0978CE15545A8B00DFD520 /* NSData+Base64.m in Sources */,
+				CD0978CF15545A8B00DFD520 /* OAuth+Additions.m in Sources */,
+				CD0978D015545A8B00DFD520 /* OAuthCore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDF37958142291940071ABF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,7 +388,7 @@
 /* Begin PBXTargetDependency section */
 		CDF37983142291940071ABF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CDF3795B142291940071ABF7 /* ReverseAuth */;
+			target = CDF3795B142291940071ABF7 /* ReverseAuth-ARC */;
 			targetProxy = CDF37982142291940071ABF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -332,6 +413,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CD0978DF15545A8B00DFD520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = "TWiOS5ReverseAuthExample/ReverseAuth-ManualMem.plist";
+				PRODUCT_NAME = "ReverseAuth-Manual";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CD0978E015545A8B00DFD520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = "TWiOS5ReverseAuthExample/ReverseAuth-ManualMem.plist";
+				PRODUCT_NAME = "ReverseAuth-Manual";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		CDF3798D142291940071ABF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -386,7 +499,7 @@
 				GCC_PREFIX_HEADER = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				INFOPLIST_FILE = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Info.plist";
+				INFOPLIST_FILE = "TWiOS5ReverseAuthExample/ReverseAuth-ARC.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
@@ -402,7 +515,7 @@
 				GCC_PREFIX_HEADER = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				INFOPLIST_FILE = "TWiOS5ReverseAuthExample/TWiOS5ReverseAuthExample-Info.plist";
+				INFOPLIST_FILE = "TWiOS5ReverseAuthExample/ReverseAuth-ARC.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
@@ -446,6 +559,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CD0978DE15545A8B00DFD520 /* Build configuration list for PBXNativeTarget "ReverseAuth-ManualMem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD0978DF15545A8B00DFD520 /* Debug */,
+				CD0978E015545A8B00DFD520 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CDF37956142291940071ABF7 /* Build configuration list for PBXProject "TWiOS5ReverseAuthExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -455,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDF3798F142291940071ABF7 /* Build configuration list for PBXNativeTarget "ReverseAuth" */ = {
+		CDF3798F142291940071ABF7 /* Build configuration list for PBXNativeTarget "ReverseAuth-ARC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDF37990142291940071ABF7 /* Debug */,
