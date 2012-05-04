@@ -29,8 +29,8 @@
 
 @interface TWAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (SAFE_ARC_PROP_RETAIN, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) TWViewController *viewController;
+@property (SAFE_ARC_PROP_RETAIN, nonatomic) TWViewController *viewController;
 
 @end

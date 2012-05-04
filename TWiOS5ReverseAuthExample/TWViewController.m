@@ -41,8 +41,6 @@
 #define TW_OAUTH_URL_REQUEST_TOKEN          @"https://api.twitter.com/oauth/request_token"
 #define TW_OAUTH_URL_AUTH_TOKEN             @"https://api.twitter.com/oauth/access_token"
 
-#define POP_ALERT(_W,_X) [[[UIAlertView alloc] initWithTitle:_W message:_X delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show]
-
 @interface TWViewController()
 
 - (BOOL)_checkForLocalCredentials;
@@ -50,19 +48,27 @@
 - (void)_handleError:(NSError *)error forResponse:(NSURLResponse *)response;
 - (void)_handleStep2Response:(NSString *)responseStr;
 
-@property (nonatomic, strong) ACAccountStore *accountStore;
+@property (nonatomic, SAFE_ARC_PROP_RETAIN) ACAccountStore *accountStore;
 @end
 
 @implementation TWViewController
-@synthesize reverseAuthBtn = _reverseAuthBtn;
 
+@synthesize reverseAuthBtn = _reverseAuthBtn;
 @synthesize accountStore = _accountStore;
+
+- (void)dealloc
+{
+    SAFE_ARC_RELEASE(_reverseAuthBtn);
+    SAFE_ARC_RELEASE(_accountStore);
+    SAFE_ARC_SUPER_DEALLOC();
+}
 
 - (void)showAlert:(NSString *)alert title:(NSString *)title
 {
     //  This can be triggered from different threads, ensure that we keep it on the main queue
     dispatch_async(dispatch_get_main_queue(), ^{
-        POP_ALERT(title, alert);
+        UIAlertView *alertView = SAFE_ARC_AUTORELEASE([[UIAlertView alloc] initWithTitle:title message:alert delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]);
+        [alertView show];
     });
 }
 
@@ -93,14 +99,11 @@
 {
     //  Check to make sure that the user has added his credentials
     if ([self _checkForKeys] && [self _checkForLocalCredentials]) {
-        //
-        //  Step 1)  Ask Twitter for a special request_token for reverse auth
-        //
-        NSURL *url = [NSURL URLWithString:TW_OAUTH_URL_REQUEST_TOKEN];
 
-        // "reverse_auth" is a required parameter
+        //  Step 1)  Ask Twitter for a special request_token for reverse auth
+        NSURL *url = [NSURL URLWithString:TW_OAUTH_URL_REQUEST_TOKEN];
         NSDictionary *dict = [NSDictionary dictionaryWithObject:TW_X_AUTH_MODE_REVERSE_AUTH forKey:TW_X_AUTH_MODE_KEY];
-        TWSignedRequest *signedRequest = [[TWSignedRequest alloc] initWithURL:url parameters:dict requestMethod:TWSignedRequestMethodPOST];
+        TWSignedRequest *signedRequest = SAFE_ARC_AUTORELEASE([[TWSignedRequest alloc] initWithURL:url parameters:dict requestMethod:TWSignedRequestMethodPOST]);
 
         [signedRequest performRequestWithHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (!data) {
@@ -110,12 +113,9 @@
             else {
                 NSString *signedReverseAuthSignature = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
-                //
                 //  Step 2)  Ask Twitter for the user's auth token and secret
                 //           include x_reverse_auth_target=CK2 and x_reverse_auth_parameters=signedReverseAuthSignature parameters
-                //
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
                     NSDictionary *step2Params = [NSDictionary dictionaryWithObjectsAndKeys:[TWSignedRequest consumerKey], TW_X_AUTH_REVERSE_TARGET, signedReverseAuthSignature, TW_X_AUTH_REVERSE_PARMS, nil];
                     NSURL *authTokenURL = [NSURL URLWithString:TW_OAUTH_URL_AUTH_TOKEN];
                     TWRequest *step2Request = [[TWRequest alloc] initWithURL:authTokenURL parameters:step2Params requestMethod:TWRequestMethodPOST];
@@ -123,7 +123,7 @@
                     //  Obtain the user's permission to access the store
                     //
                     //  NB: You *MUST* keep the ACAccountStore around for as long as you need an ACAccount around.  See WWDC 2011 Session 124 for more info.
-                    self.accountStore = [[ACAccountStore alloc] init];
+                    self.accountStore = SAFE_ARC_AUTORELEASE([[ACAccountStore alloc] init]);
                     ACAccountType *twitterType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 
                     [self.accountStore requestAccessToAccountsWithType:twitterType withCompletionHandler:^(BOOL granted, NSError *error) {
@@ -134,7 +134,7 @@
                             // obtain all the local account instances
                             NSArray *accounts = [self.accountStore accountsWithAccountType:twitterType];
 
-                            // we can assume that we have at least one account thanks to +[TWTweetComposeViewController canSendTweet], let's return it
+                            // we can assume that we have at least one account thanks to +[TWTweetComposeViewController canSendTweet], let's return its information
                             [step2Request setAccount:[accounts objectAtIndex:0]];
                             [step2Request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
                                 if (!responseData) {
@@ -142,7 +142,7 @@
                                     [self _handleError:error forResponse:response];
                                 }
                                 else {
-                                    NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+                                    NSString *responseStr = SAFE_ARC_AUTORELEASE([[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
                                     [self _handleStep2Response:responseStr];
                                 }
                             }];
@@ -157,7 +157,6 @@
 - (void)_handleError:(NSError *)error forResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)response;
-
     NSLog(@"[Step Two Request Error]: %@", [error localizedDescription]);
     NSLog(@"[Step Two Request Error]: Response Code:%d \"%@\" ", [urlResponse statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[urlResponse statusCode]]);
 }
@@ -190,7 +189,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 

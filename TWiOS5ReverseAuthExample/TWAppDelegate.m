@@ -25,7 +25,6 @@
 
 #import "TWAppDelegate.h"
 #import "TWViewController.h"
-#import <Twitter/Twitter.h>
 
 @implementation TWAppDelegate
 
@@ -34,8 +33,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[TWViewController alloc] initWithNibName:@"TWViewController" bundle:nil];
+    self.window = SAFE_ARC_AUTORELEASE([[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]);
+    self.viewController = SAFE_ARC_AUTORELEASE([[TWViewController alloc] initWithNibName:@"TWViewController" bundle:nil]);
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

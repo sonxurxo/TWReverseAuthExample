@@ -49,6 +49,7 @@
 @end
 
 @implementation TWSignedRequest
+
 @synthesize authToken = _authToken;
 @synthesize authTokenSecret = _authTokenSecret;
 
@@ -56,8 +57,8 @@
 {
     self = [super init];
     if (self) {
-        _url = url;
-        _parameters = parameters;
+        _url = SAFE_ARC_RETAIN(url);
+        _parameters = [parameters copy];
         _signedRequestMethod = requestMethod;
     }
     return self;
@@ -83,15 +84,17 @@
 
     //  Build our parameter string
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
+
     [_parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [paramsAsString appendFormat:@"%@=%@&", key, obj];
     }];
 
     //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], _authToken, _authTokenSecret);
+    SAFE_ARC_RELEASE(paramsAsString);
 
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:_url];
+    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TWSignedRequest consumerKey], [TWSignedRequest consumerSecret], _authToken, _authTokenSecret);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     [request setHTTPMethod:method];
     [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     [request setHTTPBody:bodyData];
