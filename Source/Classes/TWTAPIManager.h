@@ -25,8 +25,7 @@
 //
 
 @import Foundation;
-
-@class ACAccount;
+@import Social;
 
 typedef void(^ReverseAuthResponseHandler)(NSData *responseData, NSError *error);
 
@@ -49,6 +48,8 @@ typedef void(^ReverseAuthResponseHandler)(NSData *responseData, NSError *error);
  *      authenticated calls to Twitter.
  */
 - (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(ReverseAuthResponseHandler)handler;
+
+- (SLRequest *)requestWithUrl:(NSURL *)url parameters:(NSDictionary *)dict requestMethod:(SLRequestMethod)requestMethod;
 
 /**
  * Returns true if there are local Twitter accounts available.
