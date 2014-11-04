@@ -110,8 +110,11 @@ static NSString *gTWConsumerSecret;
 + (NSString *)consumerKey
 {
     if (!gTWConsumerKey) {
-        NSBundle* bundle = [NSBundle mainBundle];
-        gTWConsumerKey = bundle.infoDictionary[TW_CONSUMER_KEY];
+        NSString *pListPath = [[NSBundle mainBundle] pathForResource:@"Twitter" ofType:@"plist"];
+        NSMutableDictionary* properties = [NSMutableDictionary dictionaryWithContentsOfFile:pListPath];
+        gTWConsumerKey = properties[TW_CONSUMER_KEY];
+//        NSBundle* bundle = [NSBundle mainBundle];
+//        gTWConsumerKey = bundle.infoDictionary[TW_CONSUMER_KEY];
     }
     
     return gTWConsumerKey;
@@ -121,8 +124,11 @@ static NSString *gTWConsumerSecret;
 + (NSString *)consumerSecret
 {
     if (!gTWConsumerSecret) {
-        NSBundle* bundle = [NSBundle mainBundle];
-        gTWConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
+        NSString *pListPath = [[NSBundle mainBundle] pathForResource:@"Twitter" ofType:@"plist"];
+        NSMutableDictionary* properties = [NSMutableDictionary dictionaryWithContentsOfFile:pListPath];
+        gTWConsumerSecret = properties[TW_CONSUMER_SECRET];
+//        NSBundle* bundle = [NSBundle mainBundle];
+//        gTWConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
     }
     
     return gTWConsumerSecret;
